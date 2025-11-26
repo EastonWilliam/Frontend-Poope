@@ -115,7 +115,7 @@ export function LogoButton({
 
 export function BasicButton({
     width = "auto",
-    height = 40,
+    height = 50,
     borderColor,
     backgroundColor,
     background,
