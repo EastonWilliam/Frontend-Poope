@@ -186,15 +186,15 @@ export function DropdownLanguageButton({
       }}
     >
       <MenuItem key='En' value='En'>
-        <img src={icon[0]} width={'24px'} height={'24px'} alt='English' />
+        {icon[0]}
         En
       </MenuItem>
       <MenuItem key='Fr' value='Fr'>
-        <img src={icon[1]} width={'24px'} height={'24px'} alt='French' />
+        {icon[1]}
         Fr
       </MenuItem>
       <MenuItem key='Po' value='Po'>
-        <img src={icon[2]} width={'24px'} height={'24px'} alt='Portuguese' />
+        {icon[2]}
         Po
       </MenuItem>
     </Select>
