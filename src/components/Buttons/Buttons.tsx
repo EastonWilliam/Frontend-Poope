@@ -127,7 +127,8 @@ export function BasicButton({
   startIcon,
   endIcon,
   link,
-  radius
+  radius = 0,
+  onClick
 }: BasicButtonProps) {
   return (
     <Button
@@ -135,19 +136,20 @@ export function BasicButton({
       endIcon={endIcon}
       variant='contained'
       href={link}
+      onClick={onClick}
       sx={{
-        width: width,
-        height: height,
-        borderColor: borderColor,
-        backgroundColor: backgroundColor,
-        background: background,
-        fontSize: fontSize,
+        width,
+        height,
+        borderColor,
+        backgroundColor,
+        background,
+        fontSize,
         color: textColor,
         textTransform: 'none',
         borderRadius: radius,
         '&:hover': {
-          backgroundColor: hoverColor,
-          color: hoverTextColor
+          backgroundColor: hoverColor ?? backgroundColor,
+          color: hoverTextColor ?? textColor
         }
       }}
     >
