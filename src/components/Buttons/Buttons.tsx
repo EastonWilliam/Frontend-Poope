@@ -4,6 +4,7 @@ import { ReactElement } from "react";
 import { Button, MenuItem, Select, SelectChangeEvent, styled, alpha, InputBase, Link, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search'
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import value from '../../custom';
 
 type Size = string | number;
 
@@ -31,8 +32,10 @@ interface DropdownButtonProps {
     height: Size
     borderColor?: string
     backgroundColor?: string
-    icon: string[],
+    icon: ReactElement[],
     justifyContent?: string
+    onChange?: (value: string) => void;
+    value?: string
 }
 
 interface LogoButtonProps {
@@ -44,18 +47,20 @@ interface LogoButtonProps {
     fontFamily?: string
     color?: string
     text: string
+    onClick?: () => void
 }
 
 interface ColorButtonProps {
-    width?: string | number
-    height?: string | number
+    width?: Size
+    height?: Size
     primaryColor?: string
     secondaryColor?: string
+    onClick?: () =>
 }
 
 interface WalletLoginButtonProps {
-    width: string | number
-    height: string | number
+    width: Size
+    height: Size
     borderColor?: string
     backgroundColor?: string
     textColor?: string
@@ -65,7 +70,7 @@ interface WalletLoginButtonProps {
     endIcon?: ReactElement
     link?: string
     radius: string | number
-    onClick?: React.FC
+    onClick?: () => void
 }
 
 interface SearchBarProps {
@@ -84,16 +89,24 @@ export function LogoButton({
     fontSize = 20,
     fontWeight = 700,
     fontFamily,
-    color
+    color = 'inherit'
 }: LogoButtonProps) {
     return (
         <Button sx={{
             width,
-            height, fontSize, fontWeight: fontWeight, fontFamily: fontFamily, color: color, background: 'none!important', border: 'none',
-            textDecoration: 'none'
+            height,
+            fontSize,
+            fontWeight,
+            fontFamily,
+            color,
+            background: 'none !important',
+            border: 'none !important',
+            textDecoration: 'none !important',
+            padding: 0,
+            minWidth: 0
         }} startIcon={logoIcon} >
 
-            <Typography variant='h2' fontFamily={'Mountains of Christmas'} sx={{ textDecoration: 'none' }}>
+            <Typography variant='h2' sx={{ fontFamily, textDecoration: 'none' }}>
                 {text}
             </Typography>
         </Button >
@@ -101,7 +114,20 @@ export function LogoButton({
 }
 
 export function BasicButton({
-    width, height, borderColor, backgroundColor, background, textColor, hoverColor, hoverTextColor, text, fontSize, startIcon, endIcon, link, radius }: basicButtonProps) {
+    width = "auto",
+    height = 40,
+    borderColor,
+    backgroundColor,
+    background,
+    textColor = "#fff",
+    hoverColor,
+    hoverTextColor,
+    text,
+    fontSize,
+    startIcon,
+    endIcon,
+    link,
+    radius }: BasicButtonProps) {
     return (<Button startIcon={startIcon} endIcon={endIcon} variant="contained" href={link}
         sx={{
             width: width,
@@ -124,7 +150,7 @@ export function BasicButton({
 
 export function DropdownLanguageButton({
     width, height, borderColor, backgroundColor, icon, justifyContent
-}: dropdownButtonProps) {
+}: DropdownButtonProps) {
 
     const [lang, setLang] = React.useState('En');
 
