@@ -223,7 +223,7 @@ export function WalletLoginButton({
   link,
   radius,
   onClick
-}: walletLoginButtonProps) {
+}: WalletLoginButtonProps) {
   return (
     <Button
       startIcon={startIcon}
