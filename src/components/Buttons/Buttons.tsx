@@ -141,7 +141,8 @@ export function BasicButton({
         width,
         height,
         borderColor,
-        backgroundColor,
+        backgroundColor: backgroundColor,
+        backgroundImage: 'none !important',
         background,
         fontSize,
         color: textColor,
@@ -203,7 +204,7 @@ export function DropdownLanguageButton({
   )
 }
 
-export function ColorButton({ width, height, primaryColor, secondaryColor }: colorButtonProps) {
+export function ColorButton({ width, height, primaryColor, secondaryColor }: ColorButtonProps) {
   return (
     <Button sx={{ width: width, height: height, borderRadius: '50%', minWidth: '20px' }}>
       <DarkModeIcon />
@@ -249,6 +250,8 @@ export function WalletLoginButton({
   )
 }
 
+export function CoinInput({width, height, coinType, })
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -292,7 +295,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   }
 }))
 
-export function CustomizedSearchBar({ placeHolder, width, height }: styledSearchBarProps) {
+export function CustomizedSearchBar({ placeHolder, width, height }: SearchBarProps) {
   return (
     <Search>
       <SearchIconWrapper>
@@ -306,3 +309,4 @@ export function CustomizedSearchBar({ placeHolder, width, height }: styledSearch
     </Search>
   )
 }
+
